@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Resume</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaeaea;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(to right, #0077b6, #00b4d8);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 28px;
+        }
+
+        .container {
+            width: 40%;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: inline-block;
+            color: #0077b6;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            margin: 10px 0 25px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #00b4d8;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0077b6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+            background-color: #f4f7fc;
+            padding: 15px 0;
+        }
+
+        .footer a {
+            color: #00b4d8;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 80%;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Upload Your Resume</h1>
+    </header>
+    <div class="container">
+        <h1>Resume Upload Form</h1>
+        <form action="/api/extract_resume/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="resume">Choose a resume file:</label>
+            <input type="file" name="resume" id="resume" required>
+            <button type="submit">Upload Resume</button>
+        </form>
+    </div>
+</body>
+</html>
